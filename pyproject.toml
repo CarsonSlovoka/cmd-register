@@ -1,0 +1,31 @@
+# required
+# pip install setuptools wheel twine
+
+# build
+# python setup.py sdist bdist_wheel
+
+# Test
+# pip install dist/cmd_register-0.0.0-py3-none-any.whl
+# pip install cmd-register-0.0.0.tar.gz
+# pip uninstall cmd-register
+
+# upload to TestPyPI
+# create API token: https://test.pypi.org/manage/account/token/
+# twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+
+# TEST
+# pip install --index-url https://test.pypi.org/simple/ cmd-register==0.0.0
+# pip install -i https://test.pypi.org/simple/ cmd-register==0.0.0
+
+# PUSH to PyPI
+# create API token: https://pypi.org/manage/account/token/
+# twine upload dist/*
+
+
+[build-system]
+requires = [
+  "setuptools>=61.0", # 指定構建後端是確保不同的構建工具: 如 setuptools, flit, poetry
+  "wheel" # wheel 用於生成二進位包
+]
+# 指定使用setuptools構建後端. 告訴構件工具(如:pip)使用setuptools來處理setup.py或setup.cfg
+build-backend = "setuptools.build_meta"

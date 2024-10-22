@@ -1,1 +1,8 @@
 *.exe
+*.pyc
+
+# 以下為此指令的產物
+# python setup.py sdist bdist_wheel
+build/
+dist/
+cmd_register.egg-info/
